@@ -1,12 +1,32 @@
-import  express  from "express";
+import express, { Application } from "express";
+import dotenv from "dotenv";
 
-const app = express();
-const PORT:Number = 3000;
+import connect from "./connection";
+import { CivilUserController } from "./Controllers/civilUserController";
 
-app.get('/home',(req,res) => {
-    res.send('Wellcome');
-})
+dotenv.config();
 
-app.listen(PORT,() =>{
-    console.log('server is running on '+ PORT);
-})
+const app: Application = express();
+const PORT = 5000;
+const civilUserController = new CivilUserController();
+
+
+app.use(express.json());
+
+
+app.post("/auth/register", (req, res) => civilUserController.register(req, res));
+app.post("/auth/login", (req, res) => civilUserController.login(req, res));
+
+
+const startServer = async () => {
+    try {
+        await connect();
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Error starting server:", error);
+    }
+};
+
+startServer();
