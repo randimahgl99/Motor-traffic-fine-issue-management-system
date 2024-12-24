@@ -24,6 +24,7 @@ class CivilUserService {
                 name,
                 email,
                 password: hashedPassword,
+                isAdmin: false,
             });
             return yield newUser.save();
         });
@@ -42,6 +43,18 @@ class CivilUserService {
                 expiresIn: "1h",
             });
             return token;
+        });
+    }
+    registerAdminUser(name, email, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
+            const newUser = new CivilUser_1.default({
+                name,
+                email,
+                password: hashedPassword,
+                isAdmin: true,
+            });
+            return yield newUser.save();
         });
     }
 }

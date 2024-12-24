@@ -45,5 +45,21 @@ class CivilUserController {
             }
         });
     }
+    adminRegister(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { name, email, password } = req.body;
+                const newUser = yield civilUserService.registerAdminUser(name, email, password);
+                res.status(201).json({
+                    success: true,
+                    message: "User registered successfully",
+                    user: { id: newUser._id, name: newUser.name, email: newUser.email },
+                });
+            }
+            catch (error) {
+                res.status(400).json({ success: false, message: error.message });
+            }
+        });
+    }
 }
 exports.CivilUserController = CivilUserController;

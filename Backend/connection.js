@@ -13,7 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const uri = process.env.MONGO_URI || "mongodb://localhost:27017/test";
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config(); // Ensure environment variables are loaded
+const uri = process.env.MONGODB_URL;
+if (!uri) {
+    throw new Error("MONGODB_URL is not defined in the environment variables");
+}
 const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(uri);

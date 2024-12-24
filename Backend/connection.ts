@@ -1,7 +1,13 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 
-const uri = process.env.MONGODB_URL || "mongodb://localhost:27017/test";
+dotenv.config(); // Ensure environment variables are loaded
+
+const uri = process.env.MONGODB_URL;
+
+if (!uri) {
+    throw new Error("MONGODB_URL is not defined in the environment variables");
+}
 
 const connect = async () => {
     try {

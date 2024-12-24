@@ -15,14 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const connection_1 = __importDefault(require("./connection"));
-const civilUserController_1 = require("./Controllers/civilUserController");
+//import { CivilUserController } from "./Controllers/civilUserController";
+const userRoute_1 = __importDefault(require("./Routes/userRoute"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = 5000;
-const civilUserController = new civilUserController_1.CivilUserController();
+//const civilUserController = new CivilUserController();
 app.use(express_1.default.json());
-app.post("/auth/register", (req, res) => civilUserController.register(req, res));
-app.post("/auth/login", (req, res) => civilUserController.login(req, res));
+app.use("/auth", userRoute_1.default);
+// app.post("/auth/register", (req, res) => civilUserController.register(req, res));
+// app.post("/auth/login", (req, res) => civilUserController.login(req, res));
+// app.post("/auth/adminRegister", (req, res) => civilUserController.adminRegister(req, res));
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield (0, connection_1.default)();
