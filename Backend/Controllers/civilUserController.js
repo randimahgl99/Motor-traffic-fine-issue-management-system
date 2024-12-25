@@ -61,5 +61,43 @@ class CivilUserController {
             }
         });
     }
+    deleteUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { id } = req.params;
+                const result = yield civilUserService.deleteUser(id);
+                res.status(200).json(result);
+            }
+            catch (error) {
+                res.status(400).json({ success: false, message: error.message });
+            }
+        });
+    }
+    editUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { id } = req.params;
+                const updates = req.body;
+                const updatedUser = yield civilUserService.editUser(id, updates);
+                res.status(200).json(updatedUser);
+            }
+            catch (error) {
+                res.status(400).json({ error: error.message });
+            }
+        });
+    }
+    editAdmin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userId = req.params.id;
+                const updates = req.body;
+                const updatedAdmin = yield civilUserService.editAdmin(userId, updates);
+                res.status(200).json(updatedAdmin);
+            }
+            catch (error) {
+                res.status(400).json({ error: error.message });
+            }
+        });
+    }
 }
 exports.CivilUserController = CivilUserController;

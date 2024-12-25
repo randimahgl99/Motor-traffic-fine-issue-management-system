@@ -51,4 +51,40 @@ export class CivilUserController {
             res.status(400).json({ success: false, message: error.message });
         }
     }
+    async deleteUser(req: Request, res: Response): Promise<void> {
+        try {
+            const { id } = req.params;
+    
+            const result = await civilUserService.deleteUser(id);
+    
+            res.status(200).json(result);
+        } catch (error: any) {
+            res.status(400).json({ success: false, message: error.message });
+        }
+    }
+    
+    async editUser(req: Request, res: Response) {
+        try {
+            const { id } = req.params;
+            const updates = req.body;
+            const updatedUser = await civilUserService.editUser(id, updates);
+            res.status(200).json(updatedUser);
+        } catch (error: any) {
+            res.status(400).json({ error: error.message });
+        }
+    }
+
+    async editAdmin(req: any, res: any): Promise<void> {
+        try {
+            const userId = req.params.id;
+            const updates = req.body;
+    
+            const updatedAdmin = await civilUserService.editAdmin(userId, updates);
+            res.status(200).json(updatedAdmin);
+        } catch (error: any) {
+            res.status(400).json({ error: error.message });
+        }
+    }
+    
+    
 }

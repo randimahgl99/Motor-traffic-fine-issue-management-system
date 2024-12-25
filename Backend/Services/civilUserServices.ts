@@ -45,5 +45,51 @@ export class CivilUserService {
 
         return await newUser.save();
     }
+    async deleteUser(userId: string): Promise<{ success: boolean; message: string }> {
+        const user = await CivilUser.findById(userId);
+    
+        if (!user) {
+            throw new Error("User not found");
+        }
+    
+        await CivilUser.findByIdAndDelete(userId);
+    
+        return { success: true, message: "User deleted successfully" };
+    }
+    
+    async editUser(userId: string, updates: Partial<ICivilUser>): Promise<ICivilUser> {
+        const user = await CivilUser.findById(userId);
+
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        if (updates.password) {
+            updates.password = await bcrypt.hash(updates.password, 10);
+        }
+
+        Object.assign(user, updates);
+        await user.save();
+
+        return user;
+    }
+
+    async editAdmin(userId: string, updates: Partial<ICivilUser>): Promise<ICivilUser> {
+        const user = await CivilUser.findById(userId);
+    
+        if (!user) {
+            throw new Error("Admin user not found");
+        }
+    
+        if (!user.isAdmin) {
+            throw new Error("The specified user is not an admin");
+        }
+    
+        // Only update provided fields
+        Object.assign(user, updates);
+    
+        return await user.save();
+    }
+    
 
 }

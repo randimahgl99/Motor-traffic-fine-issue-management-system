@@ -32,13 +32,25 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
+const validator_1 = __importDefault(require("validator"));
 const civilUserSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: {
+        type: String,
+        required: [true, "Email is required"],
+        unique: true,
+        validate: {
+            validator: (email) => validator_1.default.isEmail(email),
+            message: "Invalid email address",
+        },
+    },
     password: { type: String, required: true },
-    isAdmin: { type: Boolean, required: true },
+    isAdmin: { type: Boolean, default: false },
 });
 const CivilUser = mongoose_1.default.model("CivilUser", civilUserSchema);
 exports.default = CivilUser;

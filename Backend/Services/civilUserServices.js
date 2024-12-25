@@ -57,5 +57,43 @@ class CivilUserService {
             return yield newUser.save();
         });
     }
+    deleteUser(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield CivilUser_1.default.findById(userId);
+            if (!user) {
+                throw new Error("User not found");
+            }
+            yield CivilUser_1.default.findByIdAndDelete(userId);
+            return { success: true, message: "User deleted successfully" };
+        });
+    }
+    editUser(userId, updates) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield CivilUser_1.default.findById(userId);
+            if (!user) {
+                throw new Error("User not found");
+            }
+            if (updates.password) {
+                updates.password = yield bcryptjs_1.default.hash(updates.password, 10);
+            }
+            Object.assign(user, updates);
+            yield user.save();
+            return user;
+        });
+    }
+    editAdmin(userId, updates) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield CivilUser_1.default.findById(userId);
+            if (!user) {
+                throw new Error("Admin user not found");
+            }
+            if (!user.isAdmin) {
+                throw new Error("The specified user is not an admin");
+            }
+            // Only update provided fields
+            Object.assign(user, updates);
+            return yield user.save();
+        });
+    }
 }
 exports.CivilUserService = CivilUserService;

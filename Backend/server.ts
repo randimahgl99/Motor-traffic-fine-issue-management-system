@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connect from "./connection";
 //import { CivilUserController } from "./Controllers/civilUserController";
 import userRoute from "./Routes/userRoute";
+import adminRoute from "./Routes/adminRoute";~
 
 
 dotenv.config();
@@ -16,7 +17,8 @@ const PORT = 5000;
 
 app.use(express.json());
 
-app.use("/auth", userRoute);
+app.use("/users", userRoute);
+app.use("/admin", adminRoute);
 
 // app.post("/auth/register", (req, res) => civilUserController.register(req, res));
 // app.post("/auth/login", (req, res) => civilUserController.login(req, res));
