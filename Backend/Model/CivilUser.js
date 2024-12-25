@@ -51,6 +51,7 @@ const civilUserSchema = new mongoose_1.Schema({
     },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
+    idNumber: { type: String, required: false },
 });
 const CivilUser = mongoose_1.default.model("CivilUser", civilUserSchema);
 exports.default = CivilUser;

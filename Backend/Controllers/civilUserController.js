@@ -48,12 +48,12 @@ class CivilUserController {
     adminRegister(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, email, password } = req.body;
-                const newUser = yield civilUserService.registerAdminUser(name, email, password);
+                const { name, email, password, idNumber } = req.body;
+                const newUser = yield civilUserService.registerAdminUser(name, email, password, idNumber);
                 res.status(201).json({
                     success: true,
                     message: "User registered successfully",
-                    user: { id: newUser._id, name: newUser.name, email: newUser.email },
+                    user: { id: newUser._id, name: newUser.name, email: newUser.email, idNumber: newUser.idNumber, },
                 });
             }
             catch (error) {

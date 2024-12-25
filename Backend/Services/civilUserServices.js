@@ -45,7 +45,7 @@ class CivilUserService {
             return token;
         });
     }
-    registerAdminUser(name, email, password) {
+    registerAdminUser(name, email, password, idNumber) {
         return __awaiter(this, void 0, void 0, function* () {
             const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
             const newUser = new CivilUser_1.default({
@@ -53,6 +53,7 @@ class CivilUserService {
                 email,
                 password: hashedPassword,
                 isAdmin: true,
+                idNumber,
             });
             return yield newUser.save();
         });

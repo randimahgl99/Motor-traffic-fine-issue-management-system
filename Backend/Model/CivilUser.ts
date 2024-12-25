@@ -7,6 +7,7 @@ export interface ICivilUser extends Document {
     email: string;
     password: string;
     isAdmin: boolean;
+    idNumber?: string;
 }
 
 const civilUserSchema: Schema = new Schema<ICivilUser>({
@@ -22,6 +23,7 @@ const civilUserSchema: Schema = new Schema<ICivilUser>({
     },
     password: { type: String, required: true },
     isAdmin :{type:Boolean, default: false},
+    idNumber: { type: String, required: false },
 });
 
 const CivilUser: Model<ICivilUser> = mongoose.model<ICivilUser>("CivilUser", civilUserSchema);

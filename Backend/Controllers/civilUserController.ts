@@ -38,14 +38,14 @@ export class CivilUserController {
 
     async adminRegister(req: Request, res: Response): Promise<void> {
         try {
-            const { name, email, password } = req.body;
+            const { name, email, password, idNumber } = req.body;
 
-            const newUser = await civilUserService.registerAdminUser(name, email, password);
+            const newUser = await civilUserService.registerAdminUser(name, email, password, idNumber);
 
             res.status(201).json({
                 success: true,
                 message: "User registered successfully",
-                user: { id: newUser._id, name: newUser.name, email: newUser.email },
+                user: { id: newUser._id, name: newUser.name, email: newUser.email, idNumber: newUser.idNumber, },
             });
         } catch (error: any) {
             res.status(400).json({ success: false, message: error.message });

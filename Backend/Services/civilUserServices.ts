@@ -11,6 +11,7 @@ export class CivilUserService {
             email,
             password: hashedPassword,
             isAdmin: false,
+            
         });
 
         return await newUser.save();
@@ -33,7 +34,7 @@ export class CivilUserService {
 
         return token;
     }
-    async registerAdminUser(name: string, email: string, password: string): Promise<ICivilUser> {
+    async registerAdminUser(name: string, email: string, password: string, idNumber?: string): Promise<ICivilUser> {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = new CivilUser({
@@ -41,6 +42,7 @@ export class CivilUserService {
             email,
             password: hashedPassword,
             isAdmin: true,
+            idNumber, 
         });
 
         return await newUser.save();
