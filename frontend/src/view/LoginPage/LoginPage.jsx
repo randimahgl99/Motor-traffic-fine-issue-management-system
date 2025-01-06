@@ -25,7 +25,7 @@ const LoginPage = () => {
 
             if (response.data.success) {
                 alert("Login successful!");
-                navigate("/dashboard");
+                navigate("/dashbord");
             } else {
                 alert(response.data.message || "Login failed");
             }
@@ -118,6 +118,12 @@ const LoginPage = () => {
                         >
                             LOGIN
                         </Button>
+                        <Box sx={{
+                            width:"100%",
+                            display:"flex",
+                            flexDirection:"row",
+                            justifyContent: "space-between"
+                        }}>
                         <Typography
                             variant="body2"
                             sx={{
@@ -130,6 +136,20 @@ const LoginPage = () => {
                         >
                             Reset Password
                         </Typography>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                textAlign: "center",
+                                color: "#00a843",
+                                mt: 2,
+                                cursor: "pointer",
+                                "&:hover": { textDecoration: "underline" },
+                            }}
+                            onClick ={() => navigate("/register")}
+                        >
+                            Register
+                        </Typography>
+                        </Box>
                     </Box>
                     <Box
                         sx={{

@@ -4,7 +4,6 @@ const DashbordPage = () => {
     return(
         <div>dashbord tesdst
 
-            <EditUser/>
 
         </div>
         

@@ -15,13 +15,14 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path='/' element={<LoginPage/>}/>
-          <Route path='/Register' element={<RegisterPage/>}/>
-          
-            <Route path='/dashboard' element={<DashbordPage/>}/>
+          <Route path='/register' element={<RegisterPage/>}/>
+          <Route path="/" element={<DrawerPage />}>
+            <Route path='dashbord' element={<DashbordPage/>}/>
             <Route path='userManagement' element={<UserManagement/>}/>
             <Route path='userdetails' element={<UserDetails/>}/>
             <Route path='editAdmin/:id' element={<EditUser/>}/>
-          
+            
+          </Route>
         </Routes>
       </HashRouter>
     </div>

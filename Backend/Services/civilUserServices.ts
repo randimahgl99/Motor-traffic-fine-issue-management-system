@@ -88,7 +88,7 @@ export class CivilUserService {
             throw new Error("The specified user is not an admin");
         }
     
-        // Only update provided fields
+        
         Object.assign(user, updates);
     
         return await user.save();

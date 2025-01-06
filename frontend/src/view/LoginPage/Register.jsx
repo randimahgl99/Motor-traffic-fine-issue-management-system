@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
     const navigate = useNavigate();
-    const [userType, setUserType] = useState("admin");
+    // const [userType, setUserType] = useState("admin");
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -33,14 +33,14 @@ const RegisterPage = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/register", {
+            const response = await axios.post("http://localhost:5000/users/auth/register", {
                 name: formData.username,
                 email: formData.email,
                 password: formData.password,
-                userType,
+                
             });
             if (response.data.success) {
-                navigate("/dashboard");
+                navigate("/");
             }
         } catch (error) {
             setError(error.response?.data?.message || "Registration failed");
@@ -83,7 +83,7 @@ const RegisterPage = () => {
                         <RadioGroup
                             row
                             defaultValue="admin"
-                            onChange={(e) => setUserType(e.target.value)}
+                            // onChange={(e) => setUserType(e.target.value)}
                             sx={{ justifyContent: "center", mb: 3 }}
                         >
                             <FormControlLabel
