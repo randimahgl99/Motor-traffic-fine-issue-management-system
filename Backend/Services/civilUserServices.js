@@ -91,7 +91,6 @@ class CivilUserService {
             if (!user.isAdmin) {
                 throw new Error("The specified user is not an admin");
             }
-            // Only update provided fields
             Object.assign(user, updates);
             return yield user.save();
         });

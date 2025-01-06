@@ -16,15 +16,17 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const connection_1 = __importDefault(require("./connection"));
 const userRoute_1 = __importDefault(require("./Routes/userRoute"));
-const adminRoute_1 = __importDefault(require("./Routes/adminRoute"));
+// import adminRoute from "./Routes/adminRoute";
 const cors_1 = __importDefault(require("cors"));
+const policeOfficerRoute_1 = __importDefault(require("./Routes/policeOfficerRoute"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = 5000;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use("/users", userRoute_1.default);
-app.use("/admin", adminRoute_1.default);
+// app.use("/admin", adminRoute);
+app.use("/policeOfficers", policeOfficerRoute_1.default);
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield (0, connection_1.default)();

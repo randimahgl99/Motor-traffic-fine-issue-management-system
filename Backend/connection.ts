@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config(); // Ensure environment variables are loaded
+dotenv.config();
 
 const uri = process.env.MONGODB_URL;
 
