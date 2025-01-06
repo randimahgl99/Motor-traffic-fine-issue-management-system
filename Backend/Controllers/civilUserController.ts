@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { CivilUserService } from "../Services/civilUserServices";
 
+
+
 const civilUserService = new CivilUserService();
 
 export class CivilUserController {

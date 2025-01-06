@@ -17,6 +17,7 @@ export class CivilUserService {
         return await newUser.save();
     }
 
+
     async loginUser(email: string, password: string): Promise<string | null> {
         const user = await CivilUser.findOne({ email });
         if (!user) {
@@ -95,3 +96,4 @@ export class CivilUserService {
     
 
 }
+
