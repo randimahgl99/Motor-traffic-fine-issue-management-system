@@ -82,7 +82,7 @@ const LoginPage = () => {
                         <TextField
                             name="email"
                             variant="outlined"
-                            placeholder="User Name"
+                            placeholder="Email"
                             fullWidth
                             value={formData.email}
                             onChange={handleChange}

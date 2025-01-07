@@ -19,7 +19,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import RuleIcon from '@mui/icons-material/Rule';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import { Avatar, Stack } from '@mui/material';
+import { Avatar, Button, Stack } from '@mui/material';
 import COLORS from '../utils/Colors';
 import profile from '../assets/Drawer/logo.png';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -29,15 +29,17 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PaymentsIcon from '@mui/icons-material/Payments';
 
+
 const drawerMenu = [
   { name: 'Dashboard', icon: <GridViewIcon />, path: '/dashbord' },
-  { name: 'User', icon: <GroupsIcon />, path: '/userManagement' },
-  { name: 'Fines', icon: <RuleIcon />, path: '/marks' },
-  { name: 'Reports', icon: <PaymentsIcon />, path: '/analyze' },
+  { name: 'Users', icon: <GroupsIcon />, path: '/userManagement' },
+  { name: 'Fines', icon: <RuleIcon />, path: '/finesManagement' },
+  { name: 'Payment', icon: <PaymentsIcon />, path: '/analyze' },
   { name: 'Settting', icon: <SettingsIcon />, path: '/add/student' },
+  
 ];
 
-const drawerWidth = 300;
+const drawerWidth = 320;
 
 const DrawerPage = (props) => {
   const { window } = props;
@@ -60,6 +62,7 @@ const DrawerPage = (props) => {
       setMobileOpen(!mobileOpen);
     }
   };
+  const logOutHandle = ()=>{ localStorage.clear(); navigate('/')}
 
   const drawer = (
     <div style={{ backgroundColor: COLORS.bgBlue, height: '100%' }}>
@@ -105,6 +108,7 @@ const DrawerPage = (props) => {
           </ListItem>
         ))}
       </List>
+      <Button sx={{bgcolor:'red', color:'white'}} onClick = {()=>logOutHandle()}>Log Out</Button>
     </div>
   );
 
@@ -221,6 +225,7 @@ const DrawerPage = (props) => {
         component="main"
         sx={{
           flexGrow: 1,
+          p: 3,
           width: `calc(100% - ${drawerWidth}px)`,
         }}
       >

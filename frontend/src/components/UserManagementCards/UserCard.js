@@ -3,13 +3,25 @@ import COLORS from "../../utils/Colors";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const UserCard = ({profileImg, name, email, state, date, id}) => {
+const UserCard = ({profileImg, name, station, batchID, id, contactInfo }) => {
 
     const navigate = useNavigate();
     const handleColor = (state)=> {
-        if(state === 'Active') return COLORS.green1
+        if(state === 'Active') return COLORS.green1  
         if(state === 'Not Active') return 'red'
+    }
+    const deletePoliceOfficer = async(id) => {
+        try{
+            console.log(id);
+            const response = await axios.delete(`http://localhost:5000/policeOfficers/delete/${id}`)
+            console.log("delete responce", response);
+            window.location.reload();
+        }
+        catch(err) {
+            console.error(err)
+        }
     }
     return(
         <Box sx={{
@@ -29,13 +41,13 @@ const UserCard = ({profileImg, name, email, state, date, id}) => {
             <Typography sx={{textAlign:'left'}}>{name}</Typography>
             </Box>
             <Box sx={{width:'15%'}}>
-            <Typography sx={{textAlign:'left'}}>{email}</Typography>
+            <Typography sx={{textAlign:'left'}}>{station}</Typography>
             </Box>
             <Box sx={{width:'15%'}}>
-            <Typography sx={{textAlign:'left'}}>{date}</Typography>
+            <Typography sx={{textAlign:'left'}}>{batchID}</Typography>
             </Box>
             <Box sx={{width:'15%'}}>
-            <Typography sx={{textAlign:'left', color:handleColor(state)}}>{state}</Typography>
+            <Typography sx={{textAlign:'left'}}>{contactInfo}</Typography>
             </Box>
             
             <Box sx={{
@@ -43,7 +55,7 @@ const UserCard = ({profileImg, name, email, state, date, id}) => {
                 flexDirection:'row',
                 borderRadius:'10px'
             }}>
-                <IconButton>
+                <IconButton onClick={() => deletePoliceOfficer(id)} >
                     <DeleteIcon/>
                 </IconButton>
                 <IconButton onClick={()=>navigate(`/editAdmin/${id}`)}>

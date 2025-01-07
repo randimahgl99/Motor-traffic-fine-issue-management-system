@@ -4,7 +4,6 @@ import { TbFileReport } from "react-icons/tb";
 import { HiDocumentReport } from "react-icons/hi";
 import { IoMdCloudDownload } from "react-icons/io";
 import { MdInsertChart } from "react-icons/md";
-import EditUser from "../UserManagement/EditUser";
 import { Box, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -35,7 +34,7 @@ const DashbordPage = () => {
           alignItems: "center",
           width: "100%",
           minHeight: "100vh",
-          backgroundColor: "#00173D",
+          backgroundColor: "#fff",
           padding: "15px",
         }}
       >
