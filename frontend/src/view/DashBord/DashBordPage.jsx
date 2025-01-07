@@ -1,3 +1,7 @@
+import { MdReportProblem } from "react-icons/md";
+import { TbReport } from "react-icons/tb";
+import { TbFileReport } from "react-icons/tb";
+import { HiDocumentReport } from "react-icons/hi";
 import { IoMdCloudDownload } from "react-icons/io";
 import { MdInsertChart } from "react-icons/md";
 import EditUser from "../UserManagement/EditUser";
@@ -40,7 +44,7 @@ const DashbordPage = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            color: "#fff",
+            color: "#000",
             width: "100%",
             height: "70px",
           }}
@@ -56,9 +60,9 @@ const DashbordPage = () => {
             alignItems: "center",
             width: "100%",
             minHeight: "300px",
-            color: "#fff",
+            color: "#000",
             padding: "10px 20px 10px 20px",
-            border: "2px solid #fff",
+            border: "2px solid #000",
             borderRadius: "20px",
           }}
         >
@@ -76,9 +80,9 @@ const DashbordPage = () => {
             <Button
                 sx={{
                     padding:"8px",
-                    border: "2px solid #fff",
+                    border: "2px solid #000",
                     borderRadius: "8px",
-                    color: "#fff",
+                    color: "#000",
                     textTransform: "none"
                 }}
             >
@@ -104,7 +108,7 @@ const DashbordPage = () => {
                 width: "190px",
                 height: "190px",
                 padding: "10px",
-                border: "2px solid #fff",
+                border: "2px solid #000",
                 borderRadius: "20px",
                 backgroundColor: "#0095FF",
                 color: "#fff",
@@ -128,7 +132,7 @@ const DashbordPage = () => {
                 width: "190px",
                 height: "190px",
                 padding: "10px",
-                border: "2px solid #fff",
+                border: "2px solid #000",
                 borderRadius: "20px",backgroundColor: "#0095FF",
                 color: "#fff",
                 textTransform: "none",
@@ -139,9 +143,31 @@ const DashbordPage = () => {
                 alignItems: "start",
               }}
             >
-              <MdInsertChart style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
+              <HiDocumentReport style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
               <h1 style={{margin: "0", color: "#000"}}>123</h1>
               <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Fines Issued</h2>
+              <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Today</h3>
+            </Button>
+
+            <Button
+              sx={{
+                width: "190px",
+                height: "190px",
+                padding: "10px",
+                border: "2px solid #000",
+                borderRadius: "20px",backgroundColor: "#0095FF",
+                color: "#fff",
+                textTransform: "none",
+                fontSize: "10px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-evenly",
+                alignItems: "start",
+              }}
+            >
+              <TbReport style={{fontSize: "40px",color: "Yellow", marginBottom: "10px"}}/>
+              <h1 style={{margin: "0", color: "#000"}}>123</h1>
+              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Unpaid Payments</h2>
               <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Overall</h3>
             </Button>
 
@@ -150,7 +176,7 @@ const DashbordPage = () => {
                 width: "190px",
                 height: "190px",
                 padding: "10px",
-                border: "2px solid #fff",
+                border: "2px solid #000",
                 borderRadius: "20px",backgroundColor: "#0095FF",
                 color: "#fff",
                 textTransform: "none",
@@ -161,10 +187,10 @@ const DashbordPage = () => {
                 alignItems: "start",
               }}
             >
-              <MdInsertChart style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
+              <TbFileReport style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
               <h1 style={{margin: "0", color: "#000"}}>123</h1>
-              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Fines Issued</h2>
-              <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Overall</h3>
+              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Unpaid Payments</h2>
+              <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Today</h3>
             </Button>
 
             <Button
@@ -172,7 +198,7 @@ const DashbordPage = () => {
                 width: "190px",
                 height: "190px",
                 padding: "10px",
-                border: "2px solid #fff",
+                border: "2px solid #000",
                 borderRadius: "20px",backgroundColor: "#0095FF",
                 color: "#fff",
                 textTransform: "none",
@@ -183,31 +209,9 @@ const DashbordPage = () => {
                 alignItems: "start",
               }}
             >
-              <MdInsertChart style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
+              <MdReportProblem style={{fontSize: "40px",color: "red", marginBottom: "10px"}}/>
               <h1 style={{margin: "0", color: "#000"}}>123</h1>
-              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Fines Issued</h2>
-              <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Overall</h3>
-            </Button>
-
-            <Button
-              sx={{
-                width: "190px",
-                height: "190px",
-                padding: "10px",
-                border: "2px solid #fff",
-                borderRadius: "20px",backgroundColor: "#0095FF",
-                color: "#fff",
-                textTransform: "none",
-                fontSize: "10px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-evenly",
-                alignItems: "start",
-              }}
-            >
-              <MdInsertChart style={{fontSize: "40px",color: "pink", marginBottom: "10px"}}/>
-              <h1 style={{margin: "0", color: "#000"}}>123</h1>
-              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Total Fines Issued</h2>
+              <h2 style={{margin: "0", width: "100%", textAlign: "center"}}>Court Issued Fines</h2>
               <h3 style={{margin: "0", width: "100%", textAlign: "center"}}>Overall</h3>
             </Button>
           </Box>

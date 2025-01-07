@@ -33,7 +33,7 @@ const drawerMenu = [
   { name: 'Dashboard', icon: <GridViewIcon />, path: '/dashbord' },
   { name: 'User', icon: <GroupsIcon />, path: '/userManagement' },
   { name: 'Fines', icon: <RuleIcon />, path: '/marks' },
-  { name: 'Payment', icon: <PaymentsIcon />, path: '/analyze' },
+  { name: 'Reports', icon: <PaymentsIcon />, path: '/analyze' },
   { name: 'Settting', icon: <SettingsIcon />, path: '/add/student' },
 ];
 

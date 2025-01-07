@@ -8,6 +8,7 @@ import UserManagement from './view/UserManagement/UserManagement';
 import UserDetails from './view/UserManagement/UserDetails';
 import EditUser from './view/UserManagement/EditUser';
 import RegisterPage from './view/LoginPage/Register';
+import Reports from './view/Reports/Reports';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='userManagement' element={<UserManagement/>}/>
             <Route path='userdetails' element={<UserDetails/>}/>
             <Route path='editAdmin/:id' element={<EditUser/>}/>
+            <Route path= 'Reports' element={<Reports/>}/>
             
           </Route>
         </Routes>
