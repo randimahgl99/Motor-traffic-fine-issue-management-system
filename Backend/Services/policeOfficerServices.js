@@ -16,20 +16,6 @@ exports.PoliceOfficerService = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const PliceOfficer_1 = __importDefault(require("../Model/PliceOfficer"));
 class PoliceOfficerService {
-    // async loginUser(email: string, password: string): Promise<string | null> {
-    //     const user = await PoliceOfficer.findOne({ badgeNumber });
-    //     if (!user) {
-    //         throw new Error("User not found");
-    //     }
-    //     const isPasswordValid = await bcrypt.compare(password, user.password);
-    //     if (!isPasswordValid) {
-    //         throw new Error("Invalid credentials");
-    //     }
-    //     const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET || "default_secret", {
-    //         expiresIn: "1h",
-    //     });
-    //     return token;
-    // }
     registerPoliceOfficerUser(name, contactInfo, password, badgeNumber, station) {
         return __awaiter(this, void 0, void 0, function* () {
             const hashedPassword = yield bcryptjs_1.default.hash(password, 10);

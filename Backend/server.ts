@@ -6,6 +6,7 @@ import userRoute from "./Routes/userRoute";
 // import adminRoute from "./Routes/adminRoute";
 import cors from 'cors';
 import policeOfficerRoute from "./Routes/policeOfficerRoute";
+import fineManagemetRoute from "./Routes/fineManagementRoute";
 
 
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/users", userRoute);
 // app.use("/admin", adminRoute);
 app.use("/policeOfficers", policeOfficerRoute);
+app.use("/fine", fineManagemetRoute);
 
 const startServer = async () => {
     try {

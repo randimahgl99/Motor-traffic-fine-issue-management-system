@@ -44,19 +44,6 @@ class PoliceOfficerController {
             }
         });
     }
-    // async login(req: Request, res: Response): Promise<void> {
-    //     try {
-    //         const { email, password } = req.body;
-    //         const token = await policeOfficerServices.loginUser(email, password);
-    //         res.status(200).json({
-    //             success: true,
-    //             message: "Login successful",
-    //             token,
-    //         });
-    //     } catch (error: any) {
-    //         res.status(400).json({ success: false, message: error.message });
-    //     }
-    // }
     deletePoliceOfficerUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
